@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { content } from '../data/content';
+---
+<Layout>
+    <main class="journey" aria-label="Wedding invitation journey">
+      <div class="scene-frame">
+        <div class="scenes">
+          <section class="scene active" id="invitation" aria-label="Invitation">
+            <img
+              class="backdrop"
+              src="assets/000001.jpg"
+              alt="Royal palace courtyard framed by a floral arch"
+            />
+            <div class="scene-title">01 INVITATION</div>
+            <div class="invitation-copy">
+              <h2><span data-bride></span><em>&</em><span data-groom></span></h2>
+              <p><i data-copy="family">{content.copy.family}</i></p>
+              <p><i data-copy="invite">{content.copy.invite}</i></p>
+              <span class="date" data-date></span>
+            </div>
+            <button class="begin scene-button"><i data-copy="begin">{content.copy.begin}</i> <span>→</span></button>
+          </section>
+          <section class="scene" id="story" aria-label="Our story" inert>
+            <img
+              class="backdrop"
+              src="assets/000002.jpg"
+              alt="A winding road along a palace lake"
+            />
+            <div class="scene-title">02 OUR STORY</div>
+            <p class="scene-subtitle">{content.pages[1].subtitle}</p>
+            <button class="milestone m1" data-story="0">
+              <i data-copy="firstMet">{content.copy.firstMet}</i> <span></span></button
+            ><button class="milestone m2" data-story="1">
+              <i data-copy="friends">{content.copy.friends}</i> <span></span></button
+            ><button class="milestone m3" data-story="2">
+              <i data-copy="journey">{content.copy.journey}</i> <span></span></button
+            ><span class="scene-hint">Tap a milestone to discover our story</span>
+          </section>
+          <section class="scene" id="celebrations" aria-label="Celebrations" inert>
+            <img
+              class="backdrop"
+              src="assets/000003.jpg"
+              alt="A road leading to a sunlit palace"
+            />
+            <div class="scene-title">03 CELEBRATIONS</div>
+            <p class="scene-subtitle">{content.pages[2].subtitle}</p>
+            <div class="celebration-carousel" id="events"></div>
+            <span class="scene-hint">Tap a celebration for the little details</span>
+          </section>
+          <section class="scene" id="gallery" aria-label="Gallery" inert>
+            <img class="backdrop" src="assets/000004.jpg" alt="Cream paper texture" /><img
+              class="corner-floral"
+              src="assets/000010.png"
+              alt=""
+            />
+            <div class="scene-title">04 GALLERY</div>
+            <p class="scene-subtitle">{content.pages[3].subtitle}</p>
+            <div class="polaroids">
+              <button data-photo="000013">
+                <img
+                  src="assets/000013.jpg"
+                  alt="Couple in a wedding car at sunset"
+                /><span>The adventure begins</span></button
+              ><button data-photo="000014">
+                <img src="assets/000014.jpg" alt="Couple beneath a palace arch" /><span
+                  >Our favourite place</span
+                ></button
+              ><button data-photo="000015">
+                <img src="assets/000015.jpg" alt="Henna hands and wedding attire" /><span
+                  >Little traditions</span
+                ></button
+              ><button data-photo="000016">
+                <img
+                  src="assets/000016.jpg"
+                  alt="Bougainvillea and a palace pavilion"
+                /><span>A little magic</span>
+              </button>
+            </div>
+            <span class="scene-hint"><i data-copy="galleryHint">{content.copy.galleryHint}</i></span>
+          </section>
+          <section class="scene" id="venue" aria-label="Venue" inert>
+            <img
+              class="backdrop"
+              src="assets/000005.jpg"
+              alt="Palace driveway beneath the hills"
+            />
+            <div class="scene-title">05 VENUE</div>
+            <p class="scene-subtitle">{content.pages[4].subtitle}</p>
+            <a class="venue-sign" id="venue-map" target="_blank" rel="noopener"
+              ><span>♧</span><strong data-venue></strong><small data-location></small
+              ><i data-copy="exploreLocation">{content.copy.exploreLocation}</i></a
+            ><span class="scene-hint">Illustrated setting · sample venue</span>
+          </section>
+          <section class="scene" id="rsvp" aria-label="RSVP" inert>
+            <img
+              class="backdrop"
+              src="assets/000006.jpg"
+              alt="Carved palace terrace overlooking the lake"
+            />
+            <div class="scene-title">06 RSVP</div>
+            <p class="scene-subtitle">{content.pages[5].subtitle}</p>
+            <div class="rsvp-buttons">
+              <button class="scene-button" data-rsvp="yes">
+                <i data-copy="attending">{content.copy.attending}</i> <span>↗</span></button
+              ><button class="scene-button outline" data-rsvp="no"><i data-copy="declining">{content.copy.declining}</i></button
+              ><small>TEMPLATE PREVIEW · RESPONSES ARE NOT SENT</small>
+            </div>
+          </section>
+          <section class="scene" id="guide" aria-label="Guest guide" inert>
+            <img
+              class="backdrop"
+              src="assets/000007.jpg"
+              alt="Winding road through palace gardens"
+            />
+            <div class="scene-title">07 GUEST GUIDE</div>
+            <p class="scene-subtitle">{content.pages[6].subtitle}</p>
+            <div class="signposts guide-signs">
+              <button data-guide="0">
+                <span>✈</span><strong><i data-copy="travelLabel">{content.copy.travelLabel}</i><small data-copy="travelDetail">{content.copy.travelDetail}</small></strong
+                ><b>↗</b></button
+              ><button data-guide="1">
+                <span>⌂</span><strong><i data-copy="stayLabel">{content.copy.stayLabel}</i><small data-copy="stayDetail">{content.copy.stayDetail}</small></strong
+                ><b>↗</b></button
+              ><button data-guide="2">
+                <span>♧</span><strong><i data-copy="dressLabel">{content.copy.dressLabel}</i><small data-copy="dressDetail">{content.copy.dressDetail}</small></strong
+                ><b>↗</b></button
+              ><button data-guide="3">
+                <span>ⓘ</span><strong><i data-copy="moreLabel">{content.copy.moreLabel}</i><small data-copy="moreDetail">{content.copy.moreDetail}</small></strong
+                ><b>↗</b>
+              </button>
+            </div>
+          </section>
+          <section class="scene" id="countdown" aria-label="Countdown" inert>
+            <img
+              class="backdrop"
+              src="assets/000008.jpg"
+              alt="Flower-strewn palace balcony with a view over the lake"
+            />
+            <div class="scene-title">08 COUNTDOWN</div>
+            <div class="forever-card">
+              <span class="countdown-crest" aria-hidden="true">✧</span>
+              <p class="countdown-eyebrow" data-copy="countdownEyebrow">{content.copy.countdownEyebrow}</p>
+              <h2 data-copy="countdownTitle">{content.copy.countdownTitle}</h2>
+              <p class="countdown-note" data-copy="countdownNote">{content.copy.countdownNote}</p>
+              <div class="countdown" role="timer" aria-label="Time until the wedding">
+                <div class="countdown-days"><strong id="days">00</strong><small id="days-label" data-copy="countdownDays">{content.copy.countdownDays}</small></div>
+                <div><strong id="hours">00</strong><small data-copy="countdownHours">{content.copy.countdownHours}</small></div>
+                <div><strong id="minutes">00</strong><small data-copy="countdownMinutes">{content.copy.countdownMinutes}</small></div>
+                <div><strong id="seconds">00</strong><small data-copy="countdownSeconds">{content.copy.countdownSeconds}</small></div>
+              </div>
+              <p class="countdown-wedding-date" data-date>{content.dateLabel}</p>
+            </div>
+            <button class="calendar-button scene-button">
+              <i data-copy="saveDate">{content.copy.saveDate}</i> <span>↓</span>
+            </button>
+          </section>
+        </div>
+        <img
+          class="travelling-car"
+          src="assets/000009.png"
+          alt="Vintage wedding car travelling through the invitation"
+        /><button
+          class="menu-button"
+          aria-label="Open journey menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <nav class="journey-menu" aria-label="Choose a page" hidden></nav>
+        <div class="route">
+          <div class="route-line"></div>
+          <div class="route-fill"></div>
+          <img class="route-car" src="assets/000028.png" alt="" />
+          <div class="route-stops" aria-label="Journey progress"></div>
+        </div>
+      </div>
+      <div class="mobile-controls">
+        <button class="previous" aria-label="Previous page">←</button
+        ><span class="page-indicator" aria-live="polite">01 / 08 · INVITATION</span
+        ><button class="next" aria-label="Next page">→</button>
+      </div>
+    </main>
+
+    <dialog id="detail-dialog">
+      <button class="close" aria-label="Close details">×</button
+      ><span class="eyebrow" id="detail-label"></span>
+      <h2 id="detail-title"></h2>
+      <p id="detail-copy"></p>
+      <button class="scene-button" id="detail-calendar" hidden>Add to calendar ↓</button>
+    </dialog>
+    <dialog id="photo-dialog">
+      <button class="close" aria-label="Close photograph">×</button
+      ><img alt="Expanded wedding illustration" />
+      <div class="photo-nav">
+        <button id="photo-prev" aria-label="Previous photograph">←</button
+        ><span id="photo-index"></span
+        ><button id="photo-next" aria-label="Next photograph">→</button>
+      </div>
+    </dialog>
+    <dialog id="rsvp-dialog">
+      <button class="close" aria-label="Close RSVP">×</button
+      ><span class="eyebrow" data-copy="rsvpEyebrow">{content.copy.rsvpEyebrow}</span>
+      <h2 id="rsvp-heading">We can’t wait.</h2>
+      <form id="rsvp-form">
+        <label
+          >Your name<input
+            name="name"
+            required
+            autocomplete="name"
+            maxlength="100" /></label
+        ><label id="guest-label"
+          >Number of guests<select name="guests">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select></label
+        ><label
+          >A message for the couple<textarea
+            name="note"
+            rows="2"
+            maxlength="1000"
+          ></textarea></label
+        ><button class="scene-button">Preview response ↗</button>
+      </form>
+      <div id="response" hidden>
+        <p id="response-text"></p>
+        <button class="scene-button" id="download-rsvp">Download response ↓</button>
+      </div>
+      <small class="demo-notice">Template demo. No response is sent or stored.</small>
+    </dialog>
+    <div class="swipe-hint">Scroll, swipe, or tap →</div>
+  
+</Layout>

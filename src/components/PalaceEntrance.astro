@@ -1,0 +1,32 @@
+---
+import { content } from '../data/content';
+const entrance = content.entrance;
+// CSS variables containing relative URLs resolve against the compiled stylesheet.
+// Use the site base so the gate also loads from the production /_astro/ CSS.
+const entranceArt = import.meta.env.BASE_URL + (entrance?.background || '').replace(/^\/+/, '');
+---
+{entrance?.enabled && (
+  <section id="palace-entrance" class="palace-entrance" role="dialog" aria-modal="true" aria-label="Your palace invitation" style={`--palace-art: url('${entranceArt}')`}>
+    <div class="palace-stage">
+      <div class="entrance-heading">
+        <p class="entrance-kicker" data-entrance-kicker>{entrance.kicker}</p>
+        <h1><span data-bride>{content.bride}</span><em>&amp;</em><span data-groom>{content.groom}</span></h1>
+        <span class="entrance-flourish" aria-hidden="true">— ✧ —</span>
+      </div>
+      <div class="palace-doorway" aria-hidden="true">
+        <div class="palace-courtyard"></div>
+        <div class="palace-door palace-door-left"></div>
+        <div class="palace-door palace-door-right"></div>
+      </div>
+      <button class="entrance-car" type="button" aria-label="Tap the car to open the palace and play music">
+        <img src={content.car.image} alt="Vintage wedding car — tap to begin" width="1536" height="1024" />
+      </button>
+      <button class="entrance-instructions" type="button">
+        <span class="entrance-prompt" data-entrance-prompt>{entrance.prompt}</span>
+        <span data-entrance-caption>{entrance.caption}</span>
+      </button>
+      <button class="entrance-silent" type="button" data-entrance-silent>{entrance.silentLabel}</button>
+      <p class="sr-only" role="status" id="entrance-status"></p>
+    </div>
+  </section>
+)}

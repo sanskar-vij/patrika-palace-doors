@@ -1,0 +1,103 @@
+/* All countdown-panel styling lives here. Text is 90% of the supplied design. */
+#countdown .forever-card {
+  position: absolute; z-index: 5; top: 21.5%; left: 50%; transform: translateX(-50%);
+  width: 82%; padding: 26px 20px 17px; text-align: center;
+  border: 1px solid #b68e51; border-radius: 120px 120px 28px 28px;
+  background: radial-gradient(ellipse at 50% 5%,#fffdf7,#f9eddaef 85%);
+  box-shadow: 0 8px 28px #67452125,inset 0 0 0 6px #fff8ed,inset 0 0 0 7px #b68e514f;
+  color: #702c3b;
+}
+.countdown-crest {
+  position: absolute; top: -17px; left: 50%; transform: translateX(-50%);
+  display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: #702c3b; color: #e6c891; border: 1px solid #b68e51; font-size: 19.8px;
+}
+#countdown .countdown-eyebrow { font: 600 8.1px/1.5 var(--font-ui); letter-spacing: 1.4px; color: #977440; margin: 2px 0 5px; }
+#countdown .forever-card h2 { font: 400 25.2px/1.2 var(--font-display); letter-spacing: -.7px; margin: 0; text-wrap: balance; }
+#countdown .countdown-note { font: 400 13.5px/1.3 var(--font-display); color: #85613e; margin: 5px 0 0; }
+#countdown .forever-card .countdown {
+  position: relative; inset: auto; transform: none; width: 100%; margin: 10px 0 0;
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px;
+  padding: 0; background: none; border: 0; border-radius: 0;
+}
+/* One shared tile style for days, hours, minutes and seconds. */
+#countdown .forever-card .countdown > div {
+  min-width: 0; padding: 8px 3px; border: 1px solid #b68e514a;
+  border-radius: 14px; background: #fffcf580;
+}
+#countdown .forever-card .countdown .countdown-days {
+  grid-column: 1 / -1; display: flex; align-items: center; justify-content: center;
+  gap: 12px; padding: 8px 12px;
+}
+#countdown .forever-card .countdown strong { display: block; font: 400 21.6px/1 var(--font-display); color: #702c3b; font-variant-numeric: tabular-nums; letter-spacing: 0; }
+#countdown .forever-card .countdown .countdown-days strong { font-size: 40.5px; }
+#countdown .forever-card .countdown small { display: block; font: 600 7.2px/1.4 var(--font-ui); letter-spacing: .6px; margin-top: 5px; color: #8a693e; }
+#countdown .forever-card .countdown .countdown-days small { margin: 0; }
+#countdown .countdown-wedding-date { border-top: 1px solid #bd9b6555; padding-top: 8px; margin: 12px 0 0; font: 400 11.7px/1.3 var(--font-display); color: #79522e; }
+#countdown > .calendar-button { bottom: 11%; min-height: 44px; padding: 8px 19px; }
+@media (max-height: 650px) {
+  #countdown .forever-card { top: 22%; padding: 20px 16px 12px; }
+  #countdown .forever-card .countdown { margin-top: 6px; }
+  #countdown .forever-card .countdown > div { padding: 6px 3px; }
+  #countdown .forever-card .countdown .countdown-days { padding: 6px 12px; }
+  #countdown .countdown-wedding-date { margin-top: 8px; padding-top: 6px; }
+}
+@media (max-height: 500px) {
+  #countdown .forever-card { top: 15%; padding: 18px 12px 10px; border-radius: 70px 70px 22px 22px; }
+  #countdown .forever-card .countdown { gap: 4px; }
+  #countdown .forever-card .countdown > div { padding: 4px 3px; }
+}
+/* Separate the days number and label into two matching boxes */
+#countdown .forever-card .countdown .countdown-days {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+#countdown .forever-card .countdown .countdown-days strong {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 56px;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #b68e514a;
+  border-radius: 14px 0 0 14px;
+  background: #fffcf580;
+  line-height: 1;
+}
+#countdown .forever-card .countdown .countdown-days small {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 56px;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #b68e514a;
+  border-radius: 0 14px 14px 0;
+  background: #fffcf580;
+  line-height: 1;
+}
+
+#countdown .forever-card .countdown .countdown-days strong {
+  font-size: 40.5px;
+}
+
+#countdown .forever-card .countdown .countdown-days small {
+  font-family: var(--font-ui);
+  font-size: 25px;
+  letter-spacing: .6px;
+}
+#countdown .forever-card .countdown .countdown-days strong,
+#countdown .forever-card .countdown .countdown-days small {
+  font-family: 'Lora', Georgia, serif;
+  font-weight: 400;
+}
+
+

@@ -1,0 +1,220 @@
+/* Hide the numbered heading badges on every invitation page. */
+.scene-title {
+  display: none !important;
+}
+
+/* Client review: remove marked helper text and paging controls. */
+#story > .scene-hint,
+#celebrations > .scene-hint,
+#venue > .scene-hint,
+#rsvp .rsvp-buttons > small,
+.mobile-controls {
+  display: none !important;
+}
+/* Leave room beneath the countdown heading and keep the car above the button. */
+#countdown > .scene-subtitle {
+  top: 21%;
+}
+#countdown > .calendar-button {
+  bottom: 7%;
+}
+/* Keep the gallery popup fitted to the photograph, centred on every screen. */
+#photo-dialog {
+  width: fit-content;
+  max-width: calc(100vw - 24px);
+  padding: 40px 16px 12px;
+  margin: auto;
+  overflow: hidden;
+}
+#photo-dialog > img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(82vw, 900px);
+  max-height: calc(90svh - 110px);
+  object-fit: contain;
+  margin: 0 auto;
+}
+#photo-dialog .photo-nav {
+  width: 100%;
+  min-width: 180px;
+  margin-top: 12px;
+}
+.scene-car {
+  transform-origin: 43% 94%;
+}
+
+/* Remove the journey menu from the invitation. */
+.menu-button,
+.journey-menu {
+  display: none !important;
+}
+
+/* A visible breeze across all scene borders, with an independent leaf flutter. */
+.botanical-cluster {
+  will-change: transform;
+}
+.botanical-sprig {
+  animation-name: leaf-breeze;
+  will-change: rotate;
+}
+.botanical-right {
+  animation-delay: -2.7s;
+}
+@keyframes leaf-breeze {
+  0% {
+    rotate: -7deg;
+    translate: 0 0;
+  }
+  45% {
+    rotate: 4deg;
+    translate: 1px -2px;
+  }
+  70% {
+    rotate: 8deg;
+    translate: -1px -1px;
+  }
+  100% {
+    rotate: 5deg;
+    translate: 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .botanical-cluster,
+  .botanical-sprig {
+    will-change: auto;
+  }
+}
+/* Event presentation is in events.css. Keep the original artwork ratio. */
+#celebrations { height: 100svh; min-height: 0; padding: 0; }
+#celebrations > .backdrop, #celebrations > .living-scene { object-fit: cover; }
+#celebrations > .scene-subtitle { top: 10%; }
+
+/* Preserve intentional line breaks from the central content file. */
+[data-copy] { white-space: pre-line; }
+
+[data-copy] { font-style:italic; }
+
+/* Fixed beside the scene, above the progress strip and mobile safe area. */
+.music-toggle {
+  position: fixed;
+  z-index: 40;
+  right: max(12px, calc((100vw - var(--page-width)) / 2 + 12px));
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 1px solid #b68d57;
+  border-radius: 24px;
+  background: #faf2e2;
+  color: #702c3b;
+  box-shadow: 0 3px 14px #422a2020;
+  font: 12px/1.3 Arial, sans-serif;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.music-toggle:focus-visible { outline: 3px solid #702c3b; outline-offset: 3px; }
+.music-icon { font-size: 16px; min-width: 15px; text-align: center; }
+
+/* Locally bundled fonts: independent of Google Fonts or any external CDN. */
+@font-face {
+  font-family: 'Cormorant Garamond'; src: url('/assets/fonts/cormorant-garamond.ttf') format('truetype');
+  font-style: normal; font-weight: 300 700; font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope'; src: url('/assets/fonts/manrope.ttf') format('truetype');
+  font-style: normal; font-weight: 200 800; font-display: swap;
+}
+:root {
+  /* Names, headings, event titles and countdown */
+  --font-display: 'DM Sans', Arial, sans-serif;
+
+  /* Buttons, labels and smaller text */
+  --font-ui: 'DM Sans', Arial, sans-serif;
+}
+body, .scene, .invitation-copy, .scene-subtitle, .milestone, .venue-sign,
+.polaroids span, dialog h2, dialog p, .countdown strong { font-family: var(--font-display); }
+.invitation-copy h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(38px,13cqw,59px); letter-spacing: -1px; }
+.invitation-copy p { font-family: var(--font-ui); font-size: clamp(9px,2.45cqw,11px); letter-spacing: 1px; }
+.invitation-copy .date { font-size: clamp(13px,3.5cqw,16px); }
+.scene-subtitle, .milestone { font-weight: 600; }
+button, .scene-button, .signposts strong, .signposts small, .venue-sign i,
+.countdown small, .photo-nav, label, input, select, textarea, .eyebrow,
+.scene-hint, .demo-notice, .music-toggle { font-family: var(--font-ui); }
+.countdown strong { font-weight: 500; font-variant-numeric: tabular-nums; }
+.milestone, .signposts button, .venue-sign, .scene-subtitle, .scene-hint,
+.invitation-copy, .countdown, dialog, .polaroids button, .polaroids figure,
+.events-empty, .rsvp-buttons small { clip-path: none; border-radius: 20px; }
+.polaroids img, #photo-dialog > img { border-radius: 14px; }
+input, select, textarea { border-radius: 12px; }
+.scene { border-radius: 24px; }
+.scene-button { border-radius: 999px; }
+/* Remove only loose/floating leaves; flowers in the original art remain. */
+.drifting-leaf, .botanical-sprig { display: none; }
+/* Wheel-only music control; accessible Play/Pause name remains on the button. */
+.music-toggle [data-music-label] { display: none; }
+.music-toggle { width: 46px; height: 46px; padding: 0; gap: 0; justify-content: center; border-radius: 50%; }
+.music-icon { display: inline-flex; align-items: center; justify-content: center; }
+.music-icon svg { display: block; animation: wheel-turn 3s linear infinite paused; transform-origin: center; }
+.music-icon.is-playing svg { animation-play-state: running; }
+@keyframes wheel-turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .music-icon svg { animation: none; } }
+
+/* The car moves on the compositor; width/left/top remain fixed during scrolling. */
+.scene-car { will-change: transform; backface-visibility: hidden; }
+#gallery > .scene-car { display: none; }
+#gallery > .scene-hint { bottom: 9%; max-width: 84%; }
+@media (prefers-reduced-motion: reduce) { .scene-car { will-change: auto; } }
+/* Remove the focus box around the couple’s names */
+#invitation h2:focus,
+.entrance-heading h1:focus {
+  outline: none;
+}
+
+/* Prevent blue text selection on the invitation */
+.journey,
+.palace-entrance {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep form fields usable */
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+/* Matching cream backgrounds across the website */
+.milestone,
+.invitation-copy,
+.venue-sign,
+.forever-card,
+.signposts button,
+.event-card,
+.scene-hint,
+dialog {
+  background: #f8efd9;
+}
+#story > .scene-subtitle {
+  background: #f8efd9;
+  border-radius: 8px;
+  padding: 9px 11px;
+}
+#invitation > .begin {
+  display: none;
+}
+/* Button width */
+#rsvp .rsvp-buttons {
+  left: 28%;
+  right: 28%;
+}
+
+/* Button height and text size */
+#rsvp .rsvp-buttons .scene-button {
+  min-height: 44px;
+  padding: 7px 12px;
+  font-size: 11px;
+}

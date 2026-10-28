@@ -1,0 +1,7 @@
+MAIN WEBSITE ONLY
+
+Run: npm install, then npm start.
+Computer: http://localhost:4174/
+Phone: use the Network URL printed in the terminal, on the same Wi-Fi.
+Upload: the contents of dist/.
+See README.md for full instructions.

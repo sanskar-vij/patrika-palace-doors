@@ -1,0 +1,152 @@
+/* Botanical artwork layers for this palace template.
+   No envelope or scratch interaction is enabled in this design. */
+/* Botanical overlays: decorative, never intercept taps. */
+:root {
+  --botanical-sway: 2.5deg;
+  --botanical-duration: 7s;
+}
+.botanical-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: clip;
+}
+.botanical-layer * {
+  animation-play-state: paused !important;
+}
+.botanicals-visible .botanical-layer * {
+  animation-play-state: running !important;
+}
+.botanical-cluster {
+  position: absolute;
+  top: -3%;
+  width: 35%;
+  height: auto;
+  transform-origin: 50% 0;
+  animation: floral-sway var(--botanical-duration) ease-in-out infinite alternate;
+}
+.botanical-left {
+  left: -7%;
+}
+.botanical-right {
+  right: -7%;
+  animation-direction: alternate-reverse;
+  animation-duration: calc(var(--botanical-duration) * 1.17);
+}
+.botanical-sprig {
+  position: absolute;
+  width: 8%;
+  height: auto;
+  opacity: 0.7;
+  transform-origin: 50% 100%;
+  animation: leaf-sway calc(var(--botanical-duration) * 0.8) ease-in-out infinite
+    alternate;
+}
+.sprig-0 {
+  left: 1%;
+  bottom: 16%;
+  transform: rotate(18deg);
+}
+.sprig-1 {
+  right: 0;
+  bottom: 23%;
+  transform: rotate(-22deg);
+}
+.sprig-2 {
+  right: 3%;
+  top: 28%;
+  width: 6%;
+  transform: rotate(-35deg);
+  opacity: 0.45;
+}
+.drifting-petal {
+  position: absolute;
+  top: -5%;
+  width: 7px;
+  height: 10px;
+  border-radius: 70% 15% 65% 30%;
+  background: linear-gradient(120deg, #de6587, #ad325e);
+  opacity: 0;
+  animation: petal-fall 17s linear infinite;
+}
+.drifting-leaf {
+  width: 6px;
+  height: 12px;
+  border-radius: 90% 0 90% 0;
+  background: linear-gradient(100deg, #8c9955, #506f39);
+}
+@keyframes floral-sway {
+  from {
+    transform: rotate(calc(var(--botanical-sway) * -1)) translateY(calc(-2px * var(--botanical-motion-scale, 1)));
+  }
+  to {
+    transform: rotate(var(--botanical-sway)) translateY(calc(2px * var(--botanical-motion-scale, 1)));
+  }
+}
+@keyframes leaf-sway {
+  from {
+    rotate: -4deg;
+  }
+  to {
+    rotate: 5deg;
+  }
+}
+@keyframes petal-fall {
+  0% {
+    top: -5%;
+    transform: translateX(0) rotate(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.55;
+  }
+  45% {
+    transform: translateX(var(--drift)) rotate(calc(150deg * var(--botanical-motion-scale, 1)));
+  }
+  85% {
+    opacity: 0.45;
+  }
+  100% {
+    top: 105%;
+    transform: translateX(calc(var(--drift) * -0.6)) rotate(calc(330deg * var(--botanical-motion-scale, 1)));
+    opacity: 0;
+  }
+}
+@media (max-height: 650px) {
+  .invitation-copy {
+    top: 20%;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+  }
+  .invitation-copy h2 {
+    font-size: clamp(30px, 10cqw, 44px);
+  }
+  .invitation-copy p {
+    margin-top: 8px;
+    font-size: 10px;
+  }
+  .invitation-copy .date {
+    margin-top: 7px;
+  }
+  .signposts {
+    gap: 8px;
+  }
+  .signposts button {
+    min-height: 53px;
+    padding: 8px;
+  }
+  .scene-hint {
+    bottom: 16%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .botanical-layer * {
+    animation: none !important;
+  }
+  .drifting-petal {
+    display: none;
+  }
+}
+

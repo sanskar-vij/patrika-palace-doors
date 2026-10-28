@@ -1,0 +1,109 @@
+/* Celebration deck: swipe, arrows, keyboard and direct ceremony selection. */
+#celebrations #events {
+  position: absolute; inset: 23% 0 auto; z-index: 5;
+  height: 51%; width: 100%; margin: 0; padding: 0;
+  display: block; max-height: none; background: none; border: 0;
+}
+.event-track {
+  position: relative; height: calc(100% - 91px); display: flex; gap: 14px;
+  padding: 5px 11% 10px; overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 11%;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain; touch-action: pan-x pan-y;
+}
+.event-track::-webkit-scrollbar, .event-picker::-webkit-scrollbar { display: none; }
+#celebrations #events .event-card {
+  position: relative; isolation: isolate; overflow: hidden;
+  flex: 0 0 100%; width: 100%; min-width: 0; height: 100%; min-height: 0;
+  scroll-snap-align: center; scroll-snap-stop: always;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; padding: 16px 15px; border-radius: 28px; clip-path: none;
+  border: 1px solid #b58b50; color: #583c28;
+  background: radial-gradient(ellipse at 50% 0%, #fffdf4, transparent 75%), #f9edda;
+  box-shadow: 0 7px 12px #593b2729, inset 0 0 0 5px #fff9ed, inset 0 0 0 6px #c49d6570;
+  transform: scale(calc(1 - .07 * var(--botanical-motion-scale, 1))) rotate(calc(-1.2deg * var(--botanical-motion-scale, 1))); opacity: .64;
+  transition: transform .35s ease, opacity .35s ease, box-shadow .35s ease;
+  cursor: pointer;
+}
+#celebrations #events .event-card.is-selected { transform: scale(1) rotate(0); opacity: 1; }
+.event-card::before, .event-card::after {
+  content: '✧'; position: absolute; color: #a4783c; font: 24px/1 Georgia,serif;
+  pointer-events: none;
+}
+.event-card::before { left: 17px; top: 17px; }
+.event-card::after { right: 17px; bottom: 17px; }
+.event-ordinal {
+  font: 8px/1.3 var(--font-ui); letter-spacing: 2px; color: #99713e;
+  margin-bottom: 3px;
+}
+.event-seal {
+  width: clamp(42px,13cqw,65px); height: clamp(42px,13cqw,65px); flex-shrink: 0;
+  display: grid; place-items: center; border-radius: 50%;
+  background: radial-gradient(circle at 35% 20%,#a0525a,#702c3b 75%);
+  color: #e7c68c; border: 1px solid #ae7c4b;
+  box-shadow: 0 0 0 3px #f9edda, 0 0 0 4px #b58b5059;
+  margin: 3px 0 4px;
+}
+.event-seal svg { width: 70%; height: 70%; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#celebrations #events .event-card .event-name {
+  font: 600 clamp(25px,7.7cqw,37px)/1 var(--font-display);
+  text-transform: capitalize; letter-spacing: .2px; color: #702c3b;
+  overflow-wrap: anywhere; margin: 3px 0 0;
+}
+.event-flourish { font: 12px/1 var(--font-display); color: #b08b4e; }
+.event-tagline {
+  max-width: 95%; font: 500 clamp(11px,3.2cqw,15px)/1.3 var(--font-display);
+  font-style: italic; color: #805d3b; text-wrap: balance;
+}
+.event-date { font: 8px/1.4 var(--font-ui); letter-spacing: .3px; color: #8a765f; margin-top: 4px; }
+.event-discover { font: 600 8px/1.4 var(--font-ui); letter-spacing: .3px; color: #702c3b; margin-top: 4px; }
+.event-navigation { height: 45px; display: flex; align-items: center; justify-content: center; gap: 22px; }
+#events .event-arrow {
+  width: 42px; height: 42px; min-height: 0; min-width: 0; padding: 0;
+  border: 1px solid #bc985d; border-radius: 50%; background: #fbf1def0;
+  color: #702c3b; font: 23px/1 var(--font-display); box-shadow: 0 2px 8px #52362117;
+  display: grid; place-items: center; cursor: pointer;
+}
+#events .event-arrow:disabled { opacity: .4; cursor: default; }
+.event-counter {
+  min-width: 66px; text-align: center; color: #702c3b; border-radius: 20px;
+  padding: 7px 10px; background: #faf1dfed; font: 10px/1.4 var(--font-ui);
+  letter-spacing: 2px; font-variant-numeric: tabular-nums;
+}
+.event-picker {
+  position: relative; display: flex; align-items: center; gap: 7px;
+  height: 44px; overflow-x: auto; padding: 3px 9%; scrollbar-width: none;
+  overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+}
+#events .event-chip {
+  flex: 0 0 auto; min-height: 34px; min-width: 0; padding: 8px 12px;
+  border: 1px solid #bc985d80; border-radius: 30px; background: #faf2e6ed;
+  color: #745335; font: 500 9px/1.2 var(--font-ui); text-transform: capitalize;
+  cursor: pointer; transition: background .2s, color .2s;
+}
+#events .event-chip[aria-pressed='true'] { background: #702c3b; color: #fff1d7; border-color: #702c3b; }
+#events button:focus-visible, .event-track:focus-visible { outline: 3px solid #702c3b; outline-offset: -3px; }
+#events .events-empty { margin: 20px 10%; padding: 25px; border-radius: 24px; background: #faf1dff2; text-align: center; }
+@media (max-height: 650px) {
+  #celebrations #events { top: 23%; height: 53%; }
+  #celebrations #events .event-card { padding: 13px; gap: 2px; }
+  .event-ordinal { font-size: 7px; margin-bottom: 0; }
+  .event-seal { width: 42px; height: 42px; margin: 3px 0; }
+  #celebrations #events .event-card .event-name { font-size: 27px; margin-top: 2px; }
+  .event-tagline { font-size: 12px; }
+  .event-date, .event-discover { margin-top: 2px; font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #celebrations #events .event-card, #events .event-chip { transition: none; }
+}
+/* Larger invitation typography and a clear action at the centre of the deck. */
+#celebrations #events .event-card .event-name { font-size: clamp(28px,8.8cqw,40px); }
+.event-tagline { font-size: clamp(14px,3.8cqw,18px); }
+.event-date { font-size: 9px; }
+.event-discover { padding: 6px 11px; border-radius: 20px; background: #702c3b; color: #fff1d7; font-size: 9px; margin-top: 7px; }
+@media (max-height: 650px) {
+  #celebrations #events .event-card .event-name { font-size: 28px; }
+  .event-tagline { font-size: 13px; }
+  .event-date { font-size: 8px; }
+  .event-discover { font-size: 8px; padding: 4px 9px; margin-top: 4px; }
+}
