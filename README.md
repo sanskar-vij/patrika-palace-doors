@@ -1,19 +1,33 @@
 
 
-This package contains the invitation website, its source and a ready-to-upload build. No visual editing dashboard is included.
+A website showcasing the restoration and heritage of Patrika Palace doors.
 
-## Run locally
-Install Node.js 22.22 or newer. Open a terminal in this folder (where package.json is), then run:
+## About the Project
 
-    npm install
-    npm start
+This project presents the Patrika Palace Doors Restored website, designed to showcase heritage, craftsmanship, and restoration work through a web-based experience.
 
-Open http://localhost:4174/ on your computer. For your phone, use the Network address printed in the terminal while both devices are on the same Wi-Fi. Keep the computer and server running.
+## Live Website
 
-## Upload
-The dist folder contains the finished static website. Upload its contents to your static hosting web root. If the platform builds the source, use npm run build and set the output folder to dist.
+After deploying with GitHub Pages, your website will be available at:
 
-## Rebuild after code changes
-    npm run build
+`https://YOUR_USERNAME.github.io/patrika-palace-doors/`
 
-Names, dates and event details are in src/data/content.ts. Font and layout styles are in src/styles/. Music is in public/assets/wedding-song.mp3.
+Replace `YOUR_USERNAME` with your GitHub username.
+
+## Deployment
+
+1. Create a public repository named `patrika-palace-doors`.
+2. Upload the website files to the repository.
+3. Open **Settings → Pages**.
+4. Select **Deploy from a branch**.
+5. Choose the `main` branch and `/(root)` folder.
+6. Click **Save** and wait for deployment.
+
+## Technologies
+
+- HTML, CSS and JavaScript, as included in the project
+- GitHub Pages for hosting
+
+## License
+
+All rights to the original website content, photographs, branding, and other assets remain with their respective owners unless otherwise specified.
