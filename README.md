@@ -1,4 +1,4 @@
-# Patrika Main Website
+
 
 This package contains the invitation website, its source and a ready-to-upload build. No visual editing dashboard is included.
 
